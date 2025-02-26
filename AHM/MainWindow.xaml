@@ -4,27 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:xbim="clr-namespace:Xbim.Presentation;assembly=Xbim.Presentation"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:local="clr-namespace:AHM"
         mc:Ignorable="d"
         Title="IFC Viewer" Height="450" Width="800">
-    <Window.Resources>
-    </Window.Resources>
-
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ToolBarTray Grid.Row="0" Background="LightGray">
-            <ToolBar>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="white">
+            <ToolBar Height="40">
                 <Button x:Name="LoadButton" Content="Load IFC" Click="LoadButton_Click" Padding="10,5" Margin="5"/>
+                <Button x:Name="AboutButton" Content="About" Click="AboutButton_Click" Padding="10,5" Margin="5"/>
             </ToolBar>
-        </ToolBarTray>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Width="200" Background="WhiteSmoke">
+            <StackPanel x:Name="PropertiesPanel" Margin="10">
+                <TextBlock Text="Properties" FontSize="14" FontWeight="Bold" Margin="0,5"/>
+                <ItemsControl ItemsSource="{Binding Properties}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <TextBlock Text="{Binding PropertySetName}" FontWeight="Bold" Width="150"/>
+                                <TextBlock Text="{Binding Name}" FontWeight="Bold" Width="150"/>
+                                <TextBlock Text="{Binding Value}" Margin="10,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </StackPanel>
 
         <xbim:DrawingControl3D 
             x:Name="DrawingControl" 
-            Grid.Row="1"
+            Grid.Row="1" Grid.Column="1"
             Model="{Binding}" 
             Focusable="True" 
             Width="Auto" 

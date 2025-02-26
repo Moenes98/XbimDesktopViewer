@@ -40,6 +40,9 @@
     <Reference Include="Esent.Interop, Version=1.9.4.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Database.ManagedEsent.2.0.3\lib\netstandard2.0\Esent.Interop.dll</HintPath>
     </Reference>
+    <Reference Include="HandyControl, Version=3.5.1.0, Culture=neutral, PublicKeyToken=45be8712787a1e5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\HandyControl.3.5.1\lib\net48\HandyControl.dll</HintPath>
+    </Reference>
     <Reference Include="HelixToolkit, Version=2.26.0.0, Culture=neutral, PublicKeyToken=52aa3500039caf0d, processorArchitecture=MSIL">
       <HintPath>..\packages\HelixToolkit.2.26.0\lib\netstandard2.0\HelixToolkit.dll</HintPath>
     </Reference>
